@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -9,7 +10,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::get('/',function(){
     return view('home');
-});
+})->name('website');
 Route::get('/about',function(){
     return view('about');
 });
@@ -26,3 +27,5 @@ Route::get('/contact',function(){
 Route::get('/test',function(){
     return view('admin');
 });
+Route::resource('category', CategoryController::class);
+
